@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+{% load account socialaccount %}
+
+{% block content %}
+
+<main id="main">
+
+    <section class="section accounts-section">
+      <div class="container">
+        <div class="row mb-5 align-items-end">
+          <div class="col-md-6" data-aos="fade-up">
+            <h2>Sign Up</h2>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6 mb-5 mb-md-0" data-aos="fade-up">
+            <form class="signup-form" id="signup_form" method="post" action="{% url 'account_signup' %}">
+              {% csrf_token %}
+              {% for key, value in form.errors.items %}
+                  {% if key != '__all__' %}{{ key }} {% endif %}{{ value }}
+              {% endfor %}
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" name="email" autocomplete="email" maxlength="320" required="" id="id_email" class="form-control">
+              </div>
+              <div class="form-group mt-3">
+                <label for="email2">Email Confirmation</label>
+                <input type="email" name="email2" maxlength="320" required="" id="id_email2" class="form-control">
+              </div>
+              <div class="form-group mt-3">
+                <label for="username">Username</label>
+                <input type="text" name="username" autocomplete="username" minlength="4" maxlength="150" required="" id="id_username" class="form-control">
+              </div>
+              <div class="form-group mt-3">
+                <label for="invite_code">Invite Code</label>
+                <input type="text" name="invite_code" maxlength="16" class="form-control" required="" id="id_invite_code">
+              </div>
+              <div class="form-group mt-3">
+                <label for="password1">Password</label>
+                <input type="password" name="password1" autocomplete="new-password" required="" id="id_password1" class="form-control">
+              </div>
+              <div class="form-group mt-3">
+                <label for="password2">Password Confirmation</label>
+                <input type="password" name="password2" autocomplete="new-password" required="" id="id_password2" class="form-control">
+              </div>
+              {% if redirect_field_value %}
+              <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+              {% endif %}
+              <div class="wrapper text-center mt-3">
+                <a class="button secondaryAction" href="{% url 'account_login' %}">Back to Login</a>
+                <input type="submit" class="readmore d-inline-block" style="width: 200px; margin-left: 10px;" value="Register">
+              </div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+</main>
+
+{% endblock %}

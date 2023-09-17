@@ -1,0 +1,166 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  {% if title %}
+  <title>Resiliency Zone - {{ title }}</title>
+  {% else %}
+  <title>Resiliency Zone</title>
+  {% endif %}
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="#" rel="icon">
+  <link href="#" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=https://fonts.googleapis.com/css?family=Inconsolata:400,500,600,700|Raleway:400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
+
+  <!-- My CSS -->
+  <link href="{% static 'css/my.css' %}" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: MyPortfolio
+  * Updated: Jul 27 2023 with Bootstrap v5.3.1
+  * Template URL: https://bootstrapmade.com/myportfolio-bootstrap-portfolio-website-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+
+  <!-- ======= Navbar ======= -->
+  <div class="collapse navbar-collapse custom-navmenu" id="main-navbar">
+    <div class="container py-2 py-md-5">
+      <div class="row align-items-start">
+        <div class="col-md-2">
+          <ul class="custom-menu">
+            {% if page == 'home' %}
+            <li class="active"><a href="{% url 'home' %}">Home</a></li>
+            {% else %}
+            <li><a href="{% url 'home' %}">Home</a></li>
+            {% endif %}
+            {% if page == 'curriculum' %}
+            <li class="active"><a href="{% url 'curriculum' %}">Curriculum</a></li>
+            {% else %}
+            <li><a href="{% url 'curriculum' %}">Curriculum</a></li>
+            {% endif %}
+        
+            {% if page == 'contact' %}
+            <li class="active"><a href="{% url 'contact' %}">Contact</a></li>
+            {% else %}
+            <li><a href="{% url 'contact' %}">Contact</a></li>
+            {% endif %}
+          
+            {% if page == 'userdata' %}
+            <li class="active"><a href="{% url 'users' %}">User Data</a></li>
+            {% else %}
+            <li><a href="{% url 'users' %}">User Data</a></li>
+            {% endif %}
+            {% if page == 'invite' %}
+            <li class="active"><a href="{% url 'invite' %}">Invite</a></li>
+            {% else %}
+            <li><a href="{% url 'invite' %}">Invite</a></li>
+            {% endif %}
+<<<<<<< HEAD
+         
+=======
+            <li><a href="{% url 'admin:index' %}">Site Management</a></li>
+            {% endif %}
+>>>>>>> e1200ba0d8a26012d9e41690a3cd733aca3d4b39
+            {% if request.user.is_authenticated %}
+            {% if not page %}
+            <li class="active"><a href="{% url 'account_logout' %}">Sign Out</a></li>
+            {% else %}
+            <li><a href="{% url 'account_logout' %}">Sign Out</a></li>
+            {% endif %}
+            {% else %}
+            {% if not page %}
+            <li class="active"><a href="{% url 'account_login' %}">Login</a></li>
+            {% else %}
+            <li><a href="{% url 'account_login' %}">Login</a></li>
+            {% endif %}
+            {% endif %}
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <nav class="navbar navbar-light custom-navbar">
+    <div class="container">
+      <a class="navbar-brand" href="{% url 'home' %}">Resiliency Zone</a>
+      <a href="#" class="burger" data-bs-toggle="collapse" data-bs-target="#main-navbar">
+        <span></span>
+      </a>
+    </div>
+  </nav>
+
+  {% block content %}
+
+  {% endblock %}
+
+  {% if messages %}
+    <div class="message-container">
+        {% for message in messages %}
+            {% with message.level as level %}
+                {% if level == 40 %}
+                    {% include 'includes/toasts/toast_error.html' %}
+                {% elif level == 30 %}
+                    {% include 'includes/toasts/toast_warning.html' %}
+                {% elif level == 25 %}
+                    {% include 'includes/toasts/toast_success.html' %}
+                {% else %}
+                    {% include 'includes/toasts/toast_info.html' %}
+                {% endif %}
+            {% endwith %}
+        {% endfor %}
+    </div>
+  {% endif %}
+
+  <!-- ======= Footer ======= -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+          <p class="mb-1">&copy; Copyright Resiliency Zone. All Rights Reserved</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Vendor JS Files -->
+  <script src="{% static 'assets/vendor/aos/aos.js' %}"></script>
+  <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+
+  <!-- Template Main JS File -->
+  <script src="{% static 'assets/js/main.js' %}"></script>
+
+  <!-- JQuery CDN -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+  <!-- My JS -->
+  <script src="{% static 'js/toast.js' %}"></script>
+  <script src="{% static 'js/footer.js' %}"></script>
+
+</body>
+
+</html>

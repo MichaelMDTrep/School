@@ -1,0 +1,8 @@
+Hello!
+
+You've been invited to sign up for Resiliency Zone!
+
+Please use the following code when you sign up:
+{{ code }}
+
+Thank you.

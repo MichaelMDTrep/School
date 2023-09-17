@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<main id="main">
+
+<section class="section pb-5">
+    <div class="container">
+
+    <div class="row">
+        <div class="col-md-6 mb-5 mb-md-0" data-aos="fade-up">
+
+        <form action="{% url 'add_course' %}" method="post" role="form" class="php-email-form">
+            {% csrf_token %}
+            <div class="row gy-3">
+            <div class="col-md-6 form-group">
+                <label for="name">Name</label>
+                <input type="text" name="name" class="form-control" id="name" required>
+            </div>
+            <div class="col-md-6 form-group">
+                <label for="name">Email</label>
+                <input type="email" class="form-control" name="email" id="email" required>
+            </div>
+            <div class="col-md-12 form-group">
+                <label for="name">Subject</label>
+                <input type="text" class="form-control" name="subject" id="subject" required>
+            </div>
+
+            <div class="col-md-6 mt-4 form-group" style="margin: 0 auto;">
+                <input type="submit" class="readmore d-block w-100" value="Send Message">
+            </div>
+            </div>
+
+        </form>
+
+        </div>
+
+    </div>
+
+    </div>
+
+</section>
+
+</main><!-- End #main -->
+
+{% endblock %}

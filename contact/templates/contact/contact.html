@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<main id="main">
+
+<section class="section pb-5">
+    <div class="container">
+
+    <div class="row mb-5 align-items-end">
+        <div class="col-md-6" data-aos="fade-up">
+        <h2>Contact</h2>
+        <p class="mb-0" style="white-space: pre-line;">
+        Hello! This is my first year as a School Counselor at Scecina Memorial High School.  I look forward to being able to help you be successful in school and life.  I enjoy teaching high school, and I genuinely believe this is the age where good habits are built for future successes in school and work. My husband and I have five children and two dogs.  We love going to the beach, our home away from home, for fun. My hobbies include listening to music, playing the piano, gardening, traveling, walking, reading, swimming, cooking, dancing, and spending time with my family and friends. I hope you have a fantastic year!  Please reach out via email if you need to reach me.
+            
+        -Mrs. Trepanier
+            
+        Contact Information:    
+        <a href="mailto:ttrepanier@scecina.org">ttrepanier@scecina.org</a>
+        </p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 mb-5 mb-md-0" data-aos="fade-up">
+
+        <form action="{% url 'contact' %}" method="post" role="form" class="php-email-form">
+            {% csrf_token %}
+            <div class="row gy-3">
+            <div class="col-md-6 form-group">
+                <label for="name">Name</label>
+                <input type="text" name="name" class="form-control" id="name" required>
+            </div>
+            <div class="col-md-6 form-group">
+                <label for="name">Email</label>
+                <input type="email" class="form-control" name="email" id="email" required>
+            </div>
+            <div class="col-md-12 form-group">
+                <label for="name">Subject</label>
+                <input type="text" class="form-control" name="subject" id="subject" required>
+            </div>
+            <div class="col-md-12 form-group">
+                <label for="name">Message</label>
+                <textarea class="form-control" name="message" cols="30" rows="10" required></textarea>
+            </div>
+
+            <div class="col-md-6 mt-4 form-group" style="margin: 0 auto;">
+                <input type="submit" class="readmore d-block w-100" value="Send Message">
+            </div>
+            </div>
+
+        </form>
+
+        </div>
+
+        <div class="col-md-4 ml-auto order-2" data-aos="fade-up">
+            <img src="{{MEDIA_URL}}Terri.jpg" class="img-fluid" alt="Mrs. Trepanier">
+        </div>
+
+    </div>
+
+    </div>
+
+</section>
+
+</main><!-- End #main -->
+
+{% endblock %}

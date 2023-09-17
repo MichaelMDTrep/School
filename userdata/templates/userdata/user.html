@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<main id="main">
+
+<section class="section">
+    <div class="container">
+    <div class="row mb-4 align-items-center">
+        <div class="col-md-6" data-aos="fade-up">
+
+        <h2>User</h2>
+        
+        </div>
+
+    </div>
+    </div>
+
+    <div class="site-section pb-0 services">
+    <div class="container" data-aos="fade-up">
+        <h4>Username: {{ user.username }}</h4>
+        <h4>Email: {{ user.email }}</h4>
+        <h4>Last Logged In: {{ user.last_login }}</h4>
+        <h4>Courses Completed History</h4>
+        <ul style="list-style-type: none; padding-left: 0px;">
+            {% for course in course_completed %}
+            <li>{{ course.course }} - {{ course.date }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    </div>
+</section>
+
+</main><!-- End #main -->
+
+{% endblock %}

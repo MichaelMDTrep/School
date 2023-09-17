@@ -1,0 +1,11 @@
+Hey Terri!
+
+{{name}} filled out the contact form on Resiliency Zone.
+
+Here are the details:
+
+Email: {{email}}
+
+Subject: {{subject}}
+
+Message: {{message}}

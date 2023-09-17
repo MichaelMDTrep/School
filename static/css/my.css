@@ -1,0 +1,22 @@
+/** Toasts **/
+
+.message-container {
+    position: fixed;
+    top: 12px;
+    left: 12px;
+    z-index: 1000;
+}
+
+.custom-toast {
+    overflow: visible;
+}
+
+.toast-capper {
+    height: 2px;
+}
+
+/** Courses **/
+
+.add-course-link-button:hover {
+    background-color: #000 !important; 
+}

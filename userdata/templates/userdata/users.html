@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<main id="main">
+
+<section class="section">
+    <div class="container">
+    <div class="row mb-4 align-items-center">
+        <div class="col-md-6" data-aos="fade-up">
+
+        <h2>Users</h2>
+        
+        <form class="search-container mt-4" action="{% url 'users' %}" method="POST">
+            {% csrf_token %}
+            <input type="text" name="query" id="id_query" placeholder="Search by username..." required>
+            <button class="user-search" type="submit"><i class="bi bi-search"></i></button>
+        </form>
+        </div>
+
+    </div>
+    </div>
+
+    <div class="site-section pb-0 services">
+    <div class="container" data-aos="fade-up">
+        <table>
+        <tr>
+            <th>Username</th>
+            <th>Last Login</th>
+        </tr>
+        {% for user in users %}
+        <tr>
+            <td><a href="{% url 'user' user.username %}">{{ user.username }}</a></td>
+            <td>{{ user.last_login }}</td>
+        </tr>
+        {% endfor %}
+        </table>
+    </div>
+    </div>
+</section>
+
+</main><!-- End #main -->
+
+{% endblock %}
